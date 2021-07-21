@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { catchError } from 'rxjs/internal/operators';
 import {
   HttpClient,
@@ -9,18 +8,17 @@ import {
 import { Observable, throwError } from 'rxjs';
 
 // API URL that provides server-side data to the client-side.
-const apiUrl = 'https://myvhs.herokuapp.com';
+const apiUrl = 'https://myvhs.herokuapp.com/';
 
+// Create injectable service to use this class in the DI system.
 @Injectable({
   providedIn: 'root',
 })
-
-// User registration (Endpoint: 'users', Method: POST).
-export class UserRegistrationService {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor parameters.
   constructor(private http: HttpClient) {}
 
-  // API call.
+  // User registration (Endpoint: 'users', Method: POST).
   public userRegistration(userDetails: any): Observable<any> {
     // Send the any argument to the API endpoint and return the API response.
     return this.http
@@ -28,25 +26,7 @@ export class UserRegistrationService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// User login (Endpoint: 'login', Method: POST).
-export class UserLoginService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // User login (Endpoint: 'login', Method: POST).
   public userLogin(userDetails: any): Observable<any> {
     // Send the any argument to the API endpoint and return the API response.
     return this.http
@@ -54,25 +34,7 @@ export class UserLoginService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get user (Endpoint: 'users/:username', Method: GET).
-export class GetUserService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get user (Endpoint: 'users/:username', Method: GET).
   public getUser(username: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -86,25 +48,7 @@ export class GetUserService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Edit user (Endpoint: 'users/:username', Method: PUT).
-export class EditUserService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Edit user (Endpoint: 'users/:username', Method: PUT).
   public editUser(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -118,25 +62,7 @@ export class EditUserService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Delete user (Endpoint: 'users/:username', Method: DELETE).
-export class DeleteUserService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Delete user (Endpoint: 'users/:username', Method: DELETE).
   public deleteUser(username: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -150,25 +76,7 @@ export class DeleteUserService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get Favorites list (Endpoint: 'users/:username/favorites', Method: GET).
-export class GetFavoritesService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get Favorites list (Endpoint: 'users/:username/favorites', Method: GET).
   public getFavorites(username: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -182,25 +90,7 @@ export class GetFavoritesService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Add movie to Favorites list (Endpoint: 'users/:username/favorites/:movie_id', Method: POST).
-export class AddMovieFavoritesService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Add movie to Favorites list (Endpoint: 'users/:username/favorites/:movie_id', Method: POST).
   public addMovieFavorites(username: any, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -214,25 +104,7 @@ export class AddMovieFavoritesService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Remove movie from Favorites list (Endpoint: 'users/:username/favorites/:movie_id', Method: DELETE).
-export class RemoveMovieFavoritesService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Remove movie from Favorites list (Endpoint: 'users/:username/favorites/:movie_id', Method: DELETE).
   public removeMovieFavorites(username: any, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -246,25 +118,7 @@ export class RemoveMovieFavoritesService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get To-Watch list (Endpoint: 'users/:username/towatch', Method: GET).
-export class GetToWatchService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get To-Watch list (Endpoint: 'users/:username/towatch', Method: GET).
   public getToWatch(username: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -278,25 +132,7 @@ export class GetToWatchService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Add movie to To-Watch list (Endpoint: 'users/:username/towatch/:movie_id', Method: POST).
-export class AddMovieToWatchService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Add movie to To-Watch list (Endpoint: 'users/:username/towatch/:movie_id', Method: POST).
   public addMovieToWatch(username: any, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -310,25 +146,7 @@ export class AddMovieToWatchService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Remove movie from To-Watch list (Endpoint: 'users/:username/towatch/:movie_id', Method: DELETE).
-export class RemoveMovieToWatchService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Remove movie from To-Watch list (Endpoint: 'users/:username/towatch/:movie_id', Method: DELETE).
   public removeMovieToWatch(username: any, movieId: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -342,25 +160,7 @@ export class RemoveMovieToWatchService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler.
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get all movies endpoint (Endpoint: 'movies', Method: GET).
-export class GetMoviesService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get all movies endpoint (Endpoint: 'movies', Method: GET).
   public getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -374,25 +174,7 @@ export class GetMoviesService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get one movie endpoint (Endpoint: 'movies/:title', Method: GET).
-export class GetMovieService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get one movie endpoint (Endpoint: 'movies/:title', Method: GET).
   public getMovie(movieTitle: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -406,25 +188,7 @@ export class GetMovieService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get genres endpoint (Endpoint: 'genres', Method: GET).
-export class GetGenresService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get genres endpoint (Endpoint: 'genres', Method: GET).
   public getGenres(): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -438,25 +202,7 @@ export class GetGenresService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get one genre endpoint (Endpoint: 'genres/:name', Method: GET).
-export class GetGenreService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get one genre endpoint (Endpoint: 'genres/:name', Method: GET).
   public getGenre(genreName: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -470,25 +216,7 @@ export class GetGenreService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get directors endpoint (Endpoint: 'directors', Method: GET).
-export class GetDirectorsService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get directors endpoint (Endpoint: 'directors', Method: GET).
   public getDirectors(): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -502,25 +230,7 @@ export class GetDirectorsService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get one director endpoint (Endpoint: 'directors/:name', Method: GET).
-export class GetDirectorService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get one director endpoint (Endpoint: 'directors/:name', Method: GET).
   public getDirector(directorName: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -534,25 +244,7 @@ export class GetDirectorService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get actors endpoint (Endpoint: 'actors', Method: GET).
-export class GetActorsService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get actors endpoint (Endpoint: 'actors', Method: GET).
   public getActors(): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -566,25 +258,7 @@ export class GetActorsService {
       .pipe(catchError(this.handleError));
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error has occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status Code: ${error.status}, ` + `Error Body: ${error.error}`
-      );
-    }
-    return throwError('Sorry, an error has occurred. Please try again later.');
-  }
-}
-
-// Get one actor endpoint (Endpoint: 'actors/:name', Method: GET).
-export class GetActorService {
-  // Inject the HttpClient module to the constructor parameters.
-  constructor(private http: HttpClient) {}
-
-  // API call.
+  // Get one actor endpoint (Endpoint: 'actors/:name', Method: GET).
   public getActor(actorName: any): Observable<any> {
     const token = localStorage.getItem('token');
 
