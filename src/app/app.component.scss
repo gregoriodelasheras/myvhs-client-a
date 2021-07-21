@@ -1,6 +1,6 @@
 .main-page {
   height: 100%;
-  max-width: 400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,6 @@
 }
 
 button {
-  width: 82px;
+  min-width: 100px;
   margin: 0.5rem 1rem;
 }
