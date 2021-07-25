@@ -1,21 +1,5 @@
-<div class="main-page">
-  <div>
-    <h1>Welcome to myVHS-A!</h1>
-    <p>The <span class="red-a">Angular</span> Client-side for myVHS.</p>
-  </div>
-  <div>
-    <button
-      mat-raised-button
-      (click)="openUserRegistrationDialog()"
-      color="primary"
-    >
-      Sign up
-    </button>
-    <button mat-raised-button (click)="openUserLoginDialog()" color="primary">
-      Log in
-    </button>
-    <button mat-raised-button (click)="openMoviesDialog()" color="primary">
-      All movies
-    </button>
-  </div>
-</div>
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
