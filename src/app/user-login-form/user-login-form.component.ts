@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Server-side API calls
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -21,6 +22,7 @@ export class UserLoginFormComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
+    public router: Router,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar
   ) {}
@@ -40,6 +42,7 @@ export class UserLoginFormComponent implements OnInit {
         this.snackBar.open(`Welcome back, ${response.user.name}!`, 'OK', {
           duration: 3000,
         });
+        this.router.navigate(['movies']);
       },
       // Login unsuccessful.
       (response) => {
