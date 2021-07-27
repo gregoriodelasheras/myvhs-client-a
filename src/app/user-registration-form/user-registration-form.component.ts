@@ -36,14 +36,14 @@ export class UserRegistrationFormComponent implements OnInit {
   // Send the form inputs to the Server-side.
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
-      // Login successful.
+      // Registration successful.
       () => {
         this.dialogRef.close();
         this.snackBar.open('Successful registration! Welcome aboard!', 'OK', {
           duration: 3000,
         });
       },
-      // Login unsuccessful.
+      // Registration unsuccessful.
       (response) => {
         console.log(response);
         this.snackBar.open(response, 'OK', {

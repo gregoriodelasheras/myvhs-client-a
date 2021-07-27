@@ -14,6 +14,15 @@
           name="Username"
           required
         />
+        <button
+          *ngIf="userData.username"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear username input"
+          (click)="userData.username = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
       <!-- Password -->
       <mat-form-field>
@@ -25,6 +34,15 @@
           name="Password"
           required
         />
+        <button
+          *ngIf="userData.password"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear password input"
+          (click)="userData.password = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </form>
   </mat-card-content>
