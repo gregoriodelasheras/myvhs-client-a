@@ -1,0 +1,164 @@
+<div class="main-profile">
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title [style.margin]="'0'">Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <!-- Username -->
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            disabled
+            [(ngModel)]="userData.username"
+            type="text"
+            name="Username"
+            required
+          />
+        </mat-form-field>
+        <!-- Name -->
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.name"
+            type="text"
+            name="Name"
+            required
+          />
+          <button
+            *ngIf="userData.name"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear name input"
+            (click)="userData.name = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- Last Name -->
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.lastName"
+            type="text"
+            name="Last Name"
+            required
+          />
+          <button
+            *ngIf="userData.lastName"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear lastName input"
+            (click)="userData.lastName = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- Birthday -->
+        <mat-form-field>
+          <mat-label>Birthday</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.birthday"
+            type="date"
+            name="Birthday"
+            required
+          />
+          <button
+            *ngIf="userData.birthday"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear birthday input"
+            (click)="userData.birthday = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- Country -->
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.country"
+            type="text"
+            name="Country"
+            required
+          />
+          <button
+            *ngIf="userData.country"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear country input"
+            (click)="userData.country = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- Email -->
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.email"
+            type="email"
+            name="Email"
+            required
+          />
+          <button
+            *ngIf="userData.email"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear email input"
+            (click)="userData.email = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- Password -->
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userData.password"
+            type="password"
+            name="Password"
+            required
+          />
+          <mat-hint
+            >At least 8 characters (A-Z, a-z, 0-9, @ # $ % ! ?)</mat-hint
+          >
+          <button
+            *ngIf="userData.password"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear password input"
+            (click)="userData.password = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions [style.padding]="'1rem 0'">
+      <button
+        (click)="openEditUserDialog()"
+        mat-raised-button
+        color="primary"
+        [style.margin]="'0.5rem'"
+      >
+        Update Profile
+      </button>
+      <button
+        mat-raised-button
+        (click)="openDeleteUserDialog()"
+        color="warn"
+        [style.margin]="'0.5rem'"
+      >
+        Delete Profile
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
