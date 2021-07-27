@@ -22,16 +22,29 @@
         >
           <mat-icon>watch_later</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Profile" aria-label="Go to Profile">
+        <button
+          routerLink="/profile"
+          mat-icon-button
+          matTooltip="Profile"
+          aria-label="Go to Profile"
+        >
           <mat-icon>account_circle</mat-icon>
         </button>
         <button
+          (click)="logout()"
+          mat-icon-button
+          matTooltip="Log out"
+          aria-label="Log out"
+        >
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
+        <!-- <button
           mat-icon-button
           matTooltip="Menu"
           aria-label="Navigation bar menu"
         >
           <mat-icon>menu</mat-icon>
-        </button>
+        </button> -->
       </mat-toolbar>
     </div>
   </nav>
