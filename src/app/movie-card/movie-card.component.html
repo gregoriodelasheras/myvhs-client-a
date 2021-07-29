@@ -17,6 +17,7 @@
       <mat-card-actions class="custom-card-actions">
         <button
           mat-raised-button
+          (click)="openDescriptionDialog(movie.title, movie.description)"
           style="margin: 0.5rem"
           class="button-card"
           color="warn"
@@ -26,6 +27,7 @@
         </button>
         <button
           mat-raised-button
+          (click)="openGenreDialog(movie.title, movie.genre)"
           style="margin: 0.5rem"
           class="button-card"
           color="warn"
@@ -35,6 +37,7 @@
         </button>
         <button
           mat-raised-button
+          (click)="openDirectorDialog(movie.title, movie.director)"
           style="margin: 0.5rem"
           class="button-card"
           color="warn"
@@ -42,7 +45,7 @@
         >
           Director
         </button>
-        <button
+        <!-- <button
           mat-raised-button
           style="margin: 0.5rem"
           class="button-card"
@@ -50,10 +53,11 @@
           aria-label="View actors"
         >
           Actors
-        </button>
+        </button> -->
         <div>
           <button
             mat-icon-button
+            (click)="toggleFavoriteMovie(movie._id, movie.title)"
             style="margin: 0.5rem 1rem"
             color="primary"
             matTooltip="Add to Favorites list"
@@ -63,6 +67,7 @@
           </button>
           <button
             mat-icon-button
+            (click)="toggleToWatchMovie(movie._id, movie.title)"
             style="margin: 0.5rem 1rem"
             color="primary"
             matTooltip="Add to To Watch list"
