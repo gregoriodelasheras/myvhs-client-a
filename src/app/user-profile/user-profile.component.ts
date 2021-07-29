@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
-// Server-side API calls
 import { FetchApiDataService } from '../fetch-api-data.service';
 
-// Service for displaying snack-bar notifications.
+import { UserProfileDeleteComponent } from '../user-profile-delete/user-profile-delete.component';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-profile',
@@ -31,14 +31,15 @@ export class UserProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.getUserData();
   }
 
-  // Get user
+  // Get user profile.
   getUserData(): void {
     const username: any = localStorage.getItem('username');
     this.fetchApiData.getUser(username).subscribe((resp: any) => {
@@ -48,7 +49,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // Edit user
+  // Edit user profile.
   openEditUserDialog(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       // Update successful.
@@ -71,29 +72,8 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  // Delete user
+  // Delete user profile.
   openDeleteUserDialog(): void {
-    const username: any = localStorage.getItem('username');
-
-    this.fetchApiData.deleteUser(username).subscribe(
-      // Delete successful.
-      () => {
-        /*
-          The server returns a code 200 error. The delete request arrives
-          successfully, but returns an error (common in Angular).
-        */
-        console.log('Error Status Code: 200, Error Body: [object Object]');
-      },
-      // Delete unsuccessful.
-      () => {
-        this.snackBar.open('The account was successfully deleted.', 'OK', {
-          duration: 3000,
-        });
-        localStorage.removeItem('username');
-        localStorage.removeItem('token');
-
-        this.router.navigate(['']);
-      }
-    );
+    this.dialog.open(UserProfileDeleteComponent);
   }
 }
