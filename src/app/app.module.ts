@@ -26,11 +26,19 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MovieGenreComponent } from './movie-genre/movie-genre.component';
+import { MovieDirectorComponent } from './movie-director/movie-director.component';
+import { MovieDescriptionComponent } from './movie-description/movie-description.component';
+import { UserFavoriteComponent } from './user-favorite/user-favorite.component';
+import { UserTowatchComponent } from './user-towatch/user-towatch.component';
+import { UserProfileDeleteComponent } from './user-profile-delete/user-profile-delete.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: UserProfileComponent },
+  { path: 'favorites', component: UserFavoriteComponent },
+  { path: 'towatch', component: UserTowatchComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -44,6 +52,12 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     UserProfileComponent,
+    MovieGenreComponent,
+    MovieDirectorComponent,
+    MovieDescriptionComponent,
+    UserFavoriteComponent,
+    UserTowatchComponent,
+    UserProfileDeleteComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
