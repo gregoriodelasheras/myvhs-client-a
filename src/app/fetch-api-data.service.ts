@@ -82,7 +82,7 @@ export class FetchApiDataService {
 
     // Pass the token in the HTTP header to the call.
     return this.http
-      .get(apiUrl + `users/${username}/favorites`, {
+      .get(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -96,7 +96,7 @@ export class FetchApiDataService {
 
     // Pass the token in the HTTP header to the call.
     return this.http
-      .post(apiUrl + `users/${username}/favorites/${movieId}`, {
+      .post(apiUrl + `users/${username}/favorites/${movieId}`, movieId, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -124,7 +124,7 @@ export class FetchApiDataService {
 
     // Pass the token in the HTTP header to the call.
     return this.http
-      .get(apiUrl + `users/${username}/towatch`, {
+      .get(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -138,7 +138,7 @@ export class FetchApiDataService {
 
     // Pass the token in the HTTP header to the call.
     return this.http
-      .post(apiUrl + `users/${username}/towatch/${movieId}`, {
+      .post(apiUrl + `users/${username}/towatch/${movieId}`, movieId, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
