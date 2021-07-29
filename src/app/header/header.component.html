@@ -2,13 +2,22 @@
   <nav class="navbar">
     <div class="wrapper">
       <mat-toolbar color="warn">
-        <a routerLink="/movies" matTooltip="Home" aria-label="Go to Home">
+        <a routerLink="" matTooltip="Home" aria-label="Go to Home">
           <mat-icon style="margin-right: 0.5rem">theaters</mat-icon>
           <span>myVHS-A</span>
         </a>
 
         <span style="flex: 1 1 auto"></span>
         <button
+          routerLink="movies"
+          mat-icon-button
+          matTooltip="Movies list"
+          aria-label="Go to Movies list"
+        >
+          <mat-icon>movie</mat-icon>
+        </button>
+        <button
+          routerLink="favorites"
           mat-icon-button
           matTooltip="Favorites list"
           aria-label="Go to Favorites list"
@@ -16,6 +25,7 @@
           <mat-icon>favorite</mat-icon>
         </button>
         <button
+          routerLink="towatch"
           mat-icon-button
           matTooltip="To-Watch list"
           aria-label="Go to To-Watch list"
@@ -23,7 +33,7 @@
           <mat-icon>watch_later</mat-icon>
         </button>
         <button
-          routerLink="/profile"
+          routerLink="profile"
           mat-icon-button
           matTooltip="Profile"
           aria-label="Go to Profile"
