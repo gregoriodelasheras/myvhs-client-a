@@ -1,0 +1,44 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-container {
+  min-height: 100vh;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.custom-card {
+  max-width: 225px;
+  margin: 1rem;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-card-header {
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.custom-card-title {
+  color: #f44336;
+}
+
+.custom-card-content {
+  height: 350px;
+  padding: 0.5rem;
+}
+
+.custom-card-actions {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.button-card {
+  width: 85px;
+}

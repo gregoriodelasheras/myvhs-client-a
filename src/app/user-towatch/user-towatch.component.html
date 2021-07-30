@@ -1,0 +1,83 @@
+<div class="wrapper">
+  <h1>To-Watch movies</h1>
+  <div class="movie-container">
+    <mat-card class="custom-card" *ngFor="let movie of movies">
+      <mat-card-header class="custom-card-header">
+        <mat-card-title class="custom-card-title">{{
+          movie.title
+        }}</mat-card-title>
+        <mat-card-subtitle>Year: {{ movie.releaseYear }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content [style.margin]="'0'" class="custom-card-content">
+        <img
+          mat-card-image
+          src="{{ movie.imagePath }}"
+          alt="{{ movie.title }}"
+        />
+      </mat-card-content>
+      <mat-card-actions class="custom-card-actions">
+        <button
+          mat-raised-button
+          (click)="openDescriptionDialog(movie.title, movie.description)"
+          style="margin: 0.5rem"
+          class="button-card"
+          color="warn"
+          aria-label="View synopsis"
+        >
+          Synopsis
+        </button>
+        <button
+          mat-raised-button
+          (click)="openGenreDialog(movie.title, movie.genre)"
+          style="margin: 0.5rem"
+          class="button-card"
+          color="warn"
+          aria-label="View genres"
+        >
+          Genre
+        </button>
+        <button
+          mat-raised-button
+          (click)="openDirectorDialog(movie.title, movie.director)"
+          style="margin: 0.5rem"
+          class="button-card"
+          color="warn"
+          aria-label="View director"
+        >
+          Director
+        </button>
+        <!-- <button
+          mat-raised-button
+          style="margin: 0.5rem"
+          class="button-card"
+          color="warn"
+          aria-label="View actors"
+        >
+          Actors
+        </button> -->
+        <div>
+          <button
+            mat-icon-button
+            (click)="toggleFavoriteMovie(movie._id, movie.title)"
+            style="margin: 0.5rem 1rem"
+            color="primary"
+            matTooltip="Add to Favorites list"
+            aria-label="Add to Favorites list"
+          >
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            (click)="toggleToWatchMovie(movie._id, movie.title)"
+            style="margin: 0.5rem 1rem"
+            color="primary"
+            matTooltip="Add to To Watch list"
+            aria-label="Add to To Watch list"
+          >
+            <mat-icon>watch_later</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

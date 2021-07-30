@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Warning!</h2>
+<mat-dialog-content class="mat-typography">
+  <p>
+    You are about to delete your account! All your data will be deleted,
+    including your favorite and to-watch lists.
+  </p>
+  <p>Are you sure you want to continue?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" mat-dialog-close cdkFocusInitial>
+    No, I want to go back
+  </button>
+  <button
+    mat-button
+    color="warn"
+    [mat-dialog-close]="true"
+    (click)="deleteUserProfile()"
+  >
+    Yes, I want to delete my account
+  </button>
+</mat-dialog-actions>
