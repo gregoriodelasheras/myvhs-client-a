@@ -1,12 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
-// Server-side API calls
 import { FetchApiDataService } from '../fetch-api-data.service';
 
-// Service for displaying snack-bar notifications.
 import { MatSnackBar } from '@angular/material/snack-bar';
-// Reference to a dialog opened via the MatDialog service.
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -30,6 +26,9 @@ export class UserLoginFormComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}
 
+  /**
+   * Send user data to server-side validation and login
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       // Login successful.

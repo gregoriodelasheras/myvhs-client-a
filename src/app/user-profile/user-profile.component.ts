@@ -39,7 +39,9 @@ export class UserProfileComponent implements OnInit {
     this.getUserData();
   }
 
-  // Get user profile.
+  /**
+   * Get user profile
+   */
   getUserData(): void {
     const username: any = localStorage.getItem('username');
     this.fetchApiData.getUser(username).subscribe((resp: any) => {
@@ -49,7 +51,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // Edit user profile.
+  /**
+   * Edit user profile
+   */
   openEditUserDialog(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       // Update successful.
@@ -72,7 +76,9 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  // Delete user profile.
+  /**
+   * Open dialog to ask about profile deletion
+   */
   openDeleteUserDialog(): void {
     this.dialog.open(UserProfileDeleteComponent);
   }

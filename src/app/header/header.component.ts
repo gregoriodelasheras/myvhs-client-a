@@ -14,7 +14,9 @@ export class HeaderComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}
 
-  // Log out
+  /**
+   * Log off user's current session
+   */
   logout(): void {
     localStorage.removeItem('username');
     localStorage.removeItem('token');

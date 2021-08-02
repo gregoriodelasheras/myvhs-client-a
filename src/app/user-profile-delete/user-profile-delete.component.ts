@@ -19,6 +19,9 @@ export class UserProfileDeleteComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}
 
+  /**
+   * Delete user profile
+   */
   deleteUserProfile(): void {
     const username: any = localStorage.getItem('username');
 
