@@ -29,7 +29,10 @@ export class UserFavoriteComponent implements OnInit {
     this.getFavoritesMovies();
   }
 
-  // Fetch all movies in user's Favorites list.
+  /**
+   * Fetch all movies in user's Favorites list
+   * @returns All movies stored in the user's Favorites list
+   */
   getFavoritesMovies(): void {
     this.fetchApiData.getFavorites(this.username).subscribe((resp: any) => {
       const favoriteMovies = resp.favoriteMovies;
@@ -43,7 +46,11 @@ export class UserFavoriteComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie description through MovieDescriptionComponent.
+  /**
+   * Open dialog to show movie description through MovieDescriptionComponent
+   * @param title
+   * @param description
+   */
   openDescriptionDialog(title: string, description: string): void {
     this.dialog.open(MovieDescriptionComponent, {
       data: { title, description },
@@ -51,7 +58,11 @@ export class UserFavoriteComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie genre through MovieGenreComponent.
+  /**
+   * Open dialog to show movie genre through MovieGenreComponent
+   * @param movieTitle
+   * @param movieGenres
+   */
   openGenreDialog(movieTitle: any, movieGenres: any): void {
     this.fetchApiData.getGenre(movieGenres[0]).subscribe((genre: any) => {
       this.dialog.open(MovieGenreComponent, {
@@ -61,7 +72,11 @@ export class UserFavoriteComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie director through MovieDirectorComponent.
+  /**
+   * Open dialog to show movie director through MovieDirectorComponent
+   * @param movieTitle
+   * @param movieDirector
+   */
   openDirectorDialog(movieTitle: any, movieDirector: any): void {
     this.fetchApiData.getDirector(movieDirector).subscribe((director: any) => {
       this.dialog.open(MovieDirectorComponent, {
@@ -71,7 +86,11 @@ export class UserFavoriteComponent implements OnInit {
     });
   }
 
-  // Add or remove movies from the Favorites list.
+  /**
+   * Add or remove movies from the Favorites list
+   * @param movieId
+   * @param movieTitle
+   */
   toggleFavoriteMovie(movieId: any, movieTitle: any): void {
     this.fetchApiData.getFavorites(this.username).subscribe((resp: any) => {
       const favoriteMovies = resp.favoriteMovies;
@@ -104,7 +123,11 @@ export class UserFavoriteComponent implements OnInit {
     });
   }
 
-  // Add or remove movies from the To-Watch list.
+  /**
+   * Add or remove movies from the To-Watch list
+   * @param movieId
+   * @param movieTitle
+   */
   toggleToWatchMovie(movieId: any, movieTitle: any): void {
     this.fetchApiData.getToWatch(this.username).subscribe((resp: any) => {
       const toWatchMovies = resp.toWatchMovies;

@@ -29,7 +29,10 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
   }
 
-  // Fetch all movies from database.
+  /**
+   * Fetch all movies from database
+   * @returns All movies stored in the database
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -37,7 +40,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie description through MovieDescriptionComponent.
+  /**
+   * Open dialog to show movie description through MovieDescriptionComponent
+   * @param title
+   * @param description
+   */
   openDescriptionDialog(title: string, description: string): void {
     this.dialog.open(MovieDescriptionComponent, {
       data: { title, description },
@@ -45,8 +52,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie genre through MovieGenreComponent.
-  openGenreDialog(movieTitle: any, movieGenres: any): void {
+  /**
+   * Open dialog to show movie genre through MovieGenreComponent
+   * @param movieTitle
+   * @param movieGenres
+   */
+  openGenreDialog(movieTitle: string, movieGenres: any): void {
     this.fetchApiData.getGenre(movieGenres[0]).subscribe((genre: any) => {
       this.dialog.open(MovieGenreComponent, {
         data: { movieTitle, genre },
@@ -55,8 +66,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // Open dialog to show movie director through MovieDirectorComponent.
-  openDirectorDialog(movieTitle: any, movieDirector: any): void {
+  /**
+   * Open dialog to show movie director through MovieDirectorComponent
+   * @param movieTitle
+   * @param movieDirector
+   */
+  openDirectorDialog(movieTitle: string, movieDirector: any): void {
     this.fetchApiData.getDirector(movieDirector).subscribe((director: any) => {
       this.dialog.open(MovieDirectorComponent, {
         data: { movieTitle, director },
@@ -65,7 +80,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // Add or remove movies from the Favorites list.
+  /**
+   * Add or remove movies from the Favorites list
+   * @param movieId
+   * @param movieTitle
+   */
   toggleFavoriteMovie(movieId: any, movieTitle: any): void {
     this.fetchApiData.getFavorites(this.username).subscribe((resp: any) => {
       const favoriteMovies = resp.favoriteMovies;
@@ -98,8 +117,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // Add or remove movies from the To-Watch list.
-  toggleToWatchMovie(movieId: any, movieTitle: any): void {
+  /**
+   * Add or remove movies from the To-Watch list
+   * @param movieId
+   * @param movieTitle
+   */
+  toggleToWatchMovie(movieId: any, movieTitle: string): void {
     this.fetchApiData.getToWatch(this.username).subscribe((resp: any) => {
       const toWatchMovies = resp.toWatchMovies;
 

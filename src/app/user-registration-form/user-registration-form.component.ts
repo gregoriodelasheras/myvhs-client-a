@@ -33,7 +33,9 @@ export class UserRegistrationFormComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}
 
-  // Send the form inputs to the Server-side.
+  /**
+   * Send the form inputs to the Server-side
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       // Registration successful.
