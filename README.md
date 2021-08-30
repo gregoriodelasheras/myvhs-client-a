@@ -71,7 +71,7 @@ The development of this application was organized through a Kanban board. You ca
 - [Angular](https://angular.io/)
 - [Angular Material](https://material.angular.io/)
 - [GitHub Pages](https://pages.github.com/)
-- [JavaScript](https://www.javascript.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
